@@ -12,7 +12,7 @@ Clonar el Repositorio
 
 Primero, necesitarás clonar el repositorio usando Git:
 
-git clone https://github.com/tu-usuario/tu-repositorio.git
+git clone https://github.com/juankaz1/drux.git
 
 Instalar Dependencias
 
