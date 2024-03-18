@@ -2,7 +2,11 @@ import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet, FlatList } from 'react-native';
 import { diccionarioColores } from '../../data';
 
-const traduccionColores = {
+interface ColorProps {
+  color: string;
+}
+
+const traduccionColores: Record<string, string> = {
   'BLANCO': '#FFFFFF',
   'GRIS': '#808080',
   'AMARILLO': '#FFFF00',
@@ -19,14 +23,14 @@ const traduccionColores = {
   'OTRO': '#C0C0C0' 
 };
 
-const SeleccionColor = () => {
-  const [colorSeleccionado, setColorSeleccionado] = useState(null);
+const SeleccionColor: React.FC = () => {
+  const [colorSeleccionado, setColorSeleccionado] = useState<string | null>(null);
 
-  const handlePress = (color) => {
+  const handlePress = (color: string) => {
     setColorSeleccionado(color);
   };
 
-  const renderItem = ({ item: color }) => (
+  const renderItem = ({ item: color }: { item: string }) => (
     <TouchableOpacity 
       style={[styles.colorBox, {backgroundColor: traduccionColores[color]}]}
       onPress={() => handlePress(color)}

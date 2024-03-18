@@ -4,10 +4,16 @@ import styles from './styles';
 // Importación del diccionario de referencias
 import { diccionarioReferencias } from '../../data';
 
-const CarruselReferencia = ({ substance }) => {
+// Define la interfaz para las props del componente
+interface CarruselReferenciaProps {
+    substance: string;
+  }
+
+
+const CarruselReferencia: React.FC<CarruselReferenciaProps> = ({ substance }) => {
     // Estados
-    const [allReferences, setAllReferences] = useState([]);
-    const [filteredReferences, setFilteredReferences] = useState([]);
+    const [allReferences, setAllReferences] = useState<string[]>([]);
+    const [filteredReferences, setFilteredReferences] = useState<string[]>([]);
     const [searchText, setSearchText] = useState('');
     const [selectedReference, setSelectedReference] = useState('');
 
@@ -28,12 +34,12 @@ const CarruselReferencia = ({ substance }) => {
         console.log("Referencia seleccionada:", searchText);
     };
 
-    const handleSelectReference = (reference) => {
+    const handleSelectReference = (reference: string) => {
         setSelectedReference(reference);
         console.log("Referencia seleccionada:", reference);
     };
 
-    const handleFilter = (text) => {
+    const handleFilter = (text: string) => {
         setSearchText(text);
         setFilteredReferences(allReferences.filter(ref => ref.includes(text)));
     };

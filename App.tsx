@@ -3,12 +3,12 @@
 import React from 'react';
 import { EventsProvider } from './src/contexts/EventsContext';
 import AppNavigator from './src/navigation/AppNavigator';
-import { SafeAreaView, StyleSheet, AppRegistry } from 'react-native';
-import { StatusBar } from 'expo-status-bar';
+import { StatusBar, SafeAreaView, StyleSheet, AppRegistry, ViewStyle } from 'react-native';
 
 
-AppRegistry.registerComponent('main', () => App);
-export default function App() {
+
+
+const App: React.FC = () => {
   return (
     <EventsProvider>
     <SafeAreaView style={styles.container}>
@@ -21,6 +21,10 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop: StatusBar.currentHeight || 0
-  },
+    marginTop: StatusBar.currentHeight ? StatusBar.currentHeight : 0,
+  } as ViewStyle,
 });
+
+AppRegistry.registerComponent('main', () => App);
+
+export default App;

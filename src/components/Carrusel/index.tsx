@@ -6,11 +6,18 @@ import SeleccionColor from '../Colors';
 
 const { width: viewportWidth } = Dimensions.get('window');
 
-const Carrusel = ({ sustancia, onClose }) => {
+interface CarruselProps {
+    sustancia: {
+        name: string;
+    };
+    onClose: () => void;
+}
+
+const Carrusel: React.FC<CarruselProps> = ({ sustancia, onClose }) => {
     const carouselRef = useRef(null);
 
     // Renderiza cada elemento del carrusel
-    const renderItem = ({item, index}) => {
+    const renderItem = ({item, index}: { item: any; index: number }) => {
         switch(index) {
             case 0:
                 return <CarruselReferencia substance={sustancia.name} />;

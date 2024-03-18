@@ -1,4 +1,6 @@
-export const listaSustancias = [
+
+export type SustanciaNombre = string;
+export const listaSustancias: SustanciaNombre[] = [
     "Marihuana (pgl)",
     "Cocaína",
     "Tusi",
@@ -20,7 +22,10 @@ export const listaSustancias = [
     // ... agregue otras sustancias según sea necesario
   ];
 
-export const diccionarioReferencias = {
+interface Referencias {
+    [key: string]: string[];
+}
+export const diccionarioReferencias: Referencias = {
   "Marihuana (pgl)": ['ak47', 'tropicana poisson', 'skunk', 'cheese', 'lemon haze'],
     "Cocaína": [],
     "Tusi": [],
@@ -40,7 +45,7 @@ export const diccionarioReferencias = {
     "Heroina": []
 };
 
-
+export type ColorNombre = string;
 export const diccionarioColores = [
   'BLANCO', 'GRIS', 'AMARILLO', 'ROSADO', 'AZUL', 'MORADO', 'DORADO', 'NARANJA', 'VERDE', 'ROJO', 'NEGRO', 'BEIGE', 'MARRON', 'OTRO'
 
